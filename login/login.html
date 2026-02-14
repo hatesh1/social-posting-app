@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SMIT Social App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="./login.css">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="login-image"></div>
+
+        <div class="login-box">
+            <h2>Welcome Back!</h2>
+            <p>Connect with your friends today.</p>
+
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="email" id="email" required placeholder="Email Address">
+                </div>
+                <div class="input-group password-field">
+                    <input type="password" id="password" required placeholder="Password">
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                </div>
+
+                <button type="submit" class="login-btn">Login</button>
+
+                <p class="footer-text">
+                    Don't have an account? <a href="../signup/signup.html">Signup Now</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="./login.mjs"></script>
+</body>
+
+</html>

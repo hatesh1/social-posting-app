@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | SMIT Social App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <script>
+        let currentUser_string = localStorage.getItem("currentUser")
+        let currentUser = JSON.parse(currentUser_string)
+
+        if (currentUser) {
+            window.location.href = "./posts/post.html"
+        } else {
+            window.location.href = "./login/login.html"
+        }
+    </script>
+</body>
+
+</html>
