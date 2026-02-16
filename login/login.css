@@ -16,12 +16,14 @@ body {
         radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
         radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
     background-attachment: fixed;
+    padding: 10px;
 }
 
 .container {
     display: flex;
-    width: 850px;
-    height: 500px;
+    width: min(850px, 100%);
+    min-height: 500px;
+    height: auto;
     border-radius: 20px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.1);
@@ -52,33 +54,38 @@ body {
 
 .login-box h2 {
     color: #000000;
-    font-size: 28px;
+    font-size: clamp(22px, 5vw, 28px);
     margin-bottom: 5px;
+    line-height: 1.2;
 }
 
 .login-box p {
     color: #232323;
     margin-bottom: 25px;
     font-weight: 500;
+    font-size: clamp(13px, 3vw, 16px);
 }
 
 .input-group {
     margin-bottom: 20px;
+    width: 100%;
 }
 
 input {
     width: 100%;
-    padding: 12px 15px;
+    padding: clamp(10px, 3vw, 12px) clamp(12px, 3vw, 15px);
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 8px;
     color: rgb(0, 0, 0);
     outline: none;
     transition: 0.3s;
+    font-size: clamp(14px, 3vw, 16px);
 }
 
 input::placeholder {
     color: rgb(54, 54, 54);
+    font-size: clamp(12px, 2.5vw, 14px);
 }
 
 input:focus {
@@ -88,12 +95,12 @@ input:focus {
 
 .login-btn {
     width: 100%;
-    padding: 12px;
+    padding: clamp(10px, 3vw, 12px);
     background: #1857eb;
     border: none;
     color: white;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: clamp(14px, 3.5vw, 16px);
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s;
@@ -107,13 +114,15 @@ input:focus {
 .footer-text {
     margin-top: 20px;
     text-align: center;
-    font-size: 14px;
+    font-size: clamp(12px, 2.8vw, 14px);
+    word-break: break-word;
 }
 
 .footer-text a {
     color: #1857eb;
     text-decoration: none;
     font-weight: bold;
+    display: inline-block;
 }
 
 .footer-text a:hover {
@@ -140,10 +149,10 @@ input::-ms-clear {
 
 .password-field i {
     position: absolute;
-    right: 15px;
+    right: clamp(10px, 3vw, 15px);
     cursor: pointer;
     color: #666;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 4vw, 1.2rem);
     transition: 0.3s;
     z-index: 10;
 }
@@ -159,17 +168,229 @@ input::-ms-clear {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        width: 100%;
+        min-height: auto;
+    }
+
     .login-image {
         display: none;
     }
 
     .login-box {
         width: 100%;
+        padding: 30px 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
     }
 
     .container {
-        width: 90%;
-        height: auto;
-        padding: 20px 0;
+        border-radius: 15px;
+    }
+
+    .login-box {
+        padding: 25px 20px;
+    }
+
+    .login-box h2 {
+        margin-bottom: 3px;
+    }
+
+    .login-box p {
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .footer-text {
+        margin-top: 15px;
+    }
+}
+
+/* Mobile Small Responsive */
+@media (max-width: 360px) {
+    body {
+        padding: 8px;
+    }
+
+    .container {
+        border-radius: 12px;
+    }
+
+    .login-box {
+        padding: 20px 15px;
+    }
+
+    .input-group {
+        margin-bottom: 12px;
+    }
+
+    .password-field input {
+        padding-right: 35px;
+    }
+
+    .footer-text {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .footer-text a {
+        margin-left: 0;
+        display: block;
+    }
+}
+
+/* Extra Small Devices (250px to 320px) */
+@media (max-width: 320px) {
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        border-radius: 10px;
+    }
+
+    .login-box {
+        padding: 15px 12px;
+    }
+
+    .login-box h2 {
+        font-size: 20px;
+    }
+
+    .login-box p {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    input {
+        padding: 8px 10px;
+    }
+
+    .input-group {
+        margin-bottom: 10px;
+    }
+
+    .login-btn {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .footer-text {
+        font-size: 11px;
+        margin-top: 12px;
+    }
+
+    .password-field input {
+        padding-right: 30px;
+    }
+
+    .password-field i {
+        font-size: 0.9rem;
+        right: 10px;
+    }
+}
+
+/* Minimum width 250px support */
+@media (max-width: 250px) {
+    body {
+        padding: 3px;
+    }
+
+    .container {
+        border-radius: 8px;
+    }
+
+    .login-box {
+        padding: 10px 8px;
+    }
+
+    .login-box h2 {
+        font-size: 18px;
+    }
+
+    .login-box p {
+        font-size: 11px;
+        margin-bottom: 12px;
+    }
+
+    input {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+
+    input::placeholder {
+        font-size: 10px;
+    }
+
+    .input-group {
+        margin-bottom: 8px;
+    }
+
+    .login-btn {
+        padding: 6px;
+        font-size: 12px;
+    }
+
+    .footer-text {
+        font-size: 10px;
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .footer-text a {
+        font-size: 10px;
+    }
+
+    .password-field input {
+        padding-right: 25px;
+    }
+
+    .password-field i {
+        font-size: 0.8rem;
+        right: 8px;
+    }
+}
+
+/* Height-based media queries for better vertical alignment */
+@media (max-height: 600px) {
+    body {
+        align-items: flex-start;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .container {
+        min-height: auto;
+    }
+}
+
+@media (max-height: 450px) {
+    .login-box {
+        padding: 15px;
+    }
+
+    .login-box h2 {
+        margin-bottom: 2px;
+    }
+
+    .login-box p {
+        margin-bottom: 10px;
+    }
+
+    .input-group {
+        margin-bottom: 8px;
     }
 }
