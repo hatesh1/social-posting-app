@@ -6,7 +6,6 @@
 }
 
 body {
-    /* background-color: #f0f2f5; */
     color: #1c1e21;
     background-color: #dfdbe5;
     background-image:
@@ -14,6 +13,7 @@ body {
         radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
         radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
     background-attachment: fixed;
+    min-height: 100vh;
 }
 
 /* Navbar */
@@ -22,67 +22,94 @@ body {
     justify-content: space-between;
     align-items: center;
     background: #667eea;
-    padding: 10px 5%;
+    padding: clamp(8px, 2vw, 10px) clamp(10px, 5%, 5%);
     color: white;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .logo {
-    font-size: 22px;
+    font-size: clamp(18px, 4vw, 22px);
     font-weight: bold;
+    line-height: 1.2;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 2vw, 15px);
+    flex-wrap: wrap;
 }
 
 .user-display-name {
     margin-right: 15px;
     font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: clamp(13px, 3vw, 16px);
+}
+
+.user-display-name i {
+    font-size: clamp(16px, 4vw, 20px);
 }
 
 .logout-btn {
     background: #ff4757;
     border: none;
     color: white;
-    padding: 6px 15px;
+    padding: clamp(4px, 1.5vw, 6px) clamp(10px, 3vw, 15px);
     border-radius: 5px;
     cursor: pointer;
+    font-size: clamp(12px, 2.8vw, 14px);
+    white-space: nowrap;
 }
 
 /* Main Content */
 .container {
     max-width: 700px;
-    margin: 20px auto;
-    padding: 10px;
+    margin: clamp(10px, 3vw, 20px) auto;
+    padding: clamp(8px, 2vw, 10px);
+    width: 100%;
 }
 
 /* Create Post Form */
 .create-post-card {
     background: white;
-    padding: 20px;
+    padding: clamp(15px, 4vw, 20px);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: clamp(15px, 3vw, 20px);
 }
 
 .create-post-card h3 {
-    margin-bottom: 15px;
-    font-size: 18px;
+    margin-bottom: clamp(10px, 2.5vw, 15px);
+    font-size: clamp(16px, 4vw, 18px);
 }
 
 input,
 textarea {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
+    padding: clamp(8px, 2.5vw, 12px);
+    margin-bottom: clamp(8px, 2vw, 10px);
     border: 1px solid #ddd;
     border-radius: 8px;
     outline: none;
     background: #f9f9f9;
+    font-size: clamp(14px, 3.5vw, 16px);
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-size: clamp(12px, 3vw, 14px);
 }
 
 textarea {
-    height: 80px;
+    height: clamp(60px, 15vw, 80px);
     resize: none;
 }
 
@@ -90,78 +117,97 @@ textarea {
     background: #667eea;
     color: white;
     border: none;
-    padding: 10px 25px;
+    padding: clamp(8px, 2.5vw, 10px) clamp(15px, 4vw, 25px);
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
+    font-size: clamp(14px, 3.5vw, 16px);
+    width: fit-content;
+    min-width: 120px;
 }
 
 /* Post Styling */
 .single-post {
     background: white;
-    padding: 20px;
+    padding: clamp(12px, 3vw, 20px);
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    margin-bottom: clamp(12px, 2.5vw, 15px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .post-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: clamp(8px, 2vw, 10px);
+    margin-bottom: clamp(8px, 2vw, 10px);
 }
 
 .post-header i {
-    font-size: 30px;
+    font-size: clamp(24px, 6vw, 30px);
     color: #667eea;
+    flex-shrink: 0;
 }
 
 .author-name {
     font-weight: 600;
     color: #333;
+    font-size: (14px, 3.5vw, 16px);
 }
 
 .post-time {
-    font-size: 12px;
+    font-size: clamp(10px, 2.5vw, 12px);
     color: #777;
 }
 
 .post-title {
-    font-size: 18px;
+    font-size: clamp(16px, 4vw, 18px);
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: clamp(5px, 1.5vw, 8px);
     color: #1c1e21;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .post-desc {
-    font-size: 15px;
+    font-size: clamp(13px, 3.2vw, 15px);
     line-height: 1.5;
     color: #4b4f56;
-    margin-bottom: 15px;
+    margin-bottom: clamp(10px, 2.5vw, 15px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Buttons */
 .post-btns {
     border-top: 1px solid #eee;
-    padding-top: 10px;
+    padding-top: clamp(8px, 2vw, 10px);
     display: flex;
     justify-content: space-between;
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
 .post-btns button {
-    flex: 1;
+    flex: 1 1 auto;
     border: none;
-    background: none;
+    background: clamp(6px, 1.5vw, 8px) clamp(4px, 1vw, 8px);
     padding: 8px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: clamp(12px, 3vw, 14px);
     color: #606770;
     transition: 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: clamp(3px, 1vw, 5px);
+    min-width: 70px;
+    white-space: nowrap;
+}
+
+.post-btns button i {
+    font-size: clamp(14px, 3.5vw, 16px);
 }
 
 .post-btns button:hover {
@@ -180,4 +226,332 @@ button.edit-btn:hover {
 
 button.delete-btn:hover {
     color: #ff4757;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 15px;
+    }
+    
+    .container {
+        max-width: 90%;
+    }
+}
+
+/* Mobile Large Responsive */
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+    }
+    
+    .user-info {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .post-btns {
+        flex-wrap: wrap;
+    }
+    
+    .post-btns button {
+        flex: 1 1 calc(33.33% - 5px);
+        white-space: normal;
+        word-break: break-word;
+        min-width: 0;
+    }
+    
+    #submitBtn {
+        width: 100%;
+    }
+}
+
+/* Mobile Small Responsive */
+@media (max-width: 360px) {
+    .navbar {
+        padding: 10px;
+    }
+    
+    .logo {
+        font-size: 18px;
+    }
+    
+    .user-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .user-display-name {
+        width: 100%;
+    }
+    
+    .logout-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .post-header i {
+        margin-bottom: 5px;
+    }
+    
+    .post-btns {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .post-btns button {
+        width: 100%;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 5px;
+    }
+    
+    .post-btns button:hover {
+        background: #e9ecef;
+    }
+}
+
+/* Extra Small Devices (250px to 320px) */
+@media (max-width: 320px) {
+    .navbar {
+        padding: 8px;
+    }
+    
+    .logo {
+        font-size: 16px;
+    }
+    
+    .user-display-name {
+        font-size: 12px;
+    }
+    
+    .logout-btn {
+        font-size: 11px;
+        padding: 4px 8px;
+    }
+    
+    .create-post-card {
+        padding: 12px;
+    }
+    
+    .create-post-card h3 {
+        font-size: 15px;
+    }
+    
+    input, textarea {
+        padding: 6px 8px;
+        font-size: 12px;
+    }
+    
+    #submitBtn {
+        font-size: 12px;
+        padding: 8px;
+    }
+    
+    .single-post {
+        padding: 10px;
+    }
+    
+    .post-header i {
+        font-size: 20px;
+    }
+    
+    .author-name {
+        font-size: 12px;
+    }
+    
+    .post-time {
+        font-size: 9px;
+    }
+    
+    .post-title {
+        font-size: 14px;
+    }
+    
+    .post-desc {
+        font-size: 12px;
+    }
+    
+    .post-btns button {
+        font-size: 11px;
+        padding: 6px;
+    }
+    
+    .post-btns button i {
+        font-size: 12px;
+    }
+}
+
+/* Minimum width 250px support */
+@media (max-width: 250px) {
+    .navbar {
+        padding: 5px;
+    }
+    
+    .logo {
+        font-size: 14px;
+    }
+    
+    .user-display-name {
+        font-size: 10px;
+        gap: 2px;
+    }
+    
+    .user-display-name i {
+        font-size: 12px;
+    }
+    
+    .logout-btn {
+        font-size: 9px;
+        padding: 3px 6px;
+    }
+    
+    .create-post-card {
+        padding: 8px;
+    }
+    
+    .create-post-card h3 {
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+    
+    input, textarea {
+        padding: 5px;
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+    
+    input::placeholder, 
+    textarea::placeholder {
+        font-size: 9px;
+    }
+    
+    textarea {
+        height: 50px;
+    }
+    
+    #submitBtn {
+        font-size: 10px;
+        padding: 6px;
+        min-width: 0;
+    }
+    
+    .single-post {
+        padding: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .post-header {
+        gap: 3px;
+    }
+    
+    .post-header i {
+        font-size: 16px;
+    }
+    
+    .author-name {
+        font-size: 10px;
+    }
+    
+    .post-time {
+        font-size: 8px;
+    }
+    
+    .post-title {
+        font-size: 12px;
+    }
+    
+    .post-desc {
+        font-size: 10px;
+        line-height: 1.3;
+    }
+    
+    .post-btns {
+        padding-top: 6px;
+        gap: 3px;
+    }
+    
+    .post-btns button {
+        font-size: 9px;
+        padding: 4px 2px;
+        gap: 2px;
+    }
+    
+    .post-btns button i {
+        font-size: 9px;
+    }
+}
+
+/* Height-based media queries */
+@media (max-height: 600px) {
+    .navbar {
+        position: relative;
+    }
+    
+    .create-post-card {
+        margin-bottom: 10px;
+    }
+    
+    .single-post {
+        margin-bottom: 10px;
+    }
+}
+
+/* Landscape mode support */
+@media (max-height: 450px) and (orientation: landscape) {
+    .navbar {
+        padding: 5px 10px;
+    }
+    
+    .create-post-card {
+        padding: 10px;
+    }
+    
+    textarea {
+        height: 50px;
+    }
+    
+    .post-btns button {
+        padding: 4px;
+    }
+}
+
+/* Very small height devices */
+@media (max-height: 400px) {
+    .create-post-card {
+        padding: 8px;
+    }
+    
+    .single-post {
+        padding: 8px;
+    }
+    
+    .post-header {
+        margin-bottom: 5px;
+    }
+    
+    .post-desc {
+        margin-bottom: 8px;
+    }
+}
+
+/* Print styles for better readability */
+@media print {
+    .navbar, .create-post-card, .post-btns {
+        display: none;
+    }
+    
+    .single-post {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
 }

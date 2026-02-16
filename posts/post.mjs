@@ -4,7 +4,7 @@ let currentUser = JSON.parse(localStorage.getItem("currentUser"))
 if (!currentUser) {
     window.location.href = "../login/login.html"
 } else {
-    // Show Full Name if exists, otherwise show email
+    // show full name if exists, otherwise show email
     document.querySelector("#userNameDisplay").innerText = currentUser.fullName || currentUser.email
 }
 
@@ -29,7 +29,7 @@ document.querySelector('#postForm').addEventListener('submit', (e) => {
         });
         return;
     }
-    // validation login end
+    // validation logic end
 
     let all_posts = JSON.parse(localStorage.getItem("posts")) || []
 
