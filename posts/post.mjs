@@ -15,8 +15,21 @@ function logout() {
 
 document.querySelector('#postForm').addEventListener('submit', (e) => {
     e.preventDefault()
-    const title = document.querySelector("#title").value
-    const description = document.querySelector("#desc").value
+
+    const title = document.querySelector("#title").value.trim()
+    const description = document.querySelector("#desc").value.trim()
+
+    // validation logic start
+    if (title === "" || description === "") {
+        Swal.fire({
+            icon: 'error',
+            title: 'Empty Fields!',
+            text: 'Please write something in both title and description.',
+            confirmButtonColor: '#667eea'
+        });
+        return;
+    }
+    // validation login end
 
     let all_posts = JSON.parse(localStorage.getItem("posts")) || []
 
@@ -95,6 +108,14 @@ window.edit_post = function (index) {
     document.querySelector("#submitBtn").innerText = "Update Post";
     editIndex = index;
     window.scrollTo(0, 0);
+
+    // new logic disable delete btn during edit
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+    deleteButtons.forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+        btn.style.cursor = "not-allowed";
+    });
 }
 
 function render_posts() {
